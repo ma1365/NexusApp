@@ -1,0 +1,8 @@
+<div *ngIf="die">
+    <h3>Roll Your {{die.DieType}}!!!</h3>
+    <span *ngFor="let value of die.RollValues">{{value}} </span>
+    <span>
+        <input [(ngModel)]="dieCount" placeholder="1"/>
+        <button  (click)="onRollDie(die)">{{die.Commands[0].CommandName}}</button>
+    </span>
+</div>
