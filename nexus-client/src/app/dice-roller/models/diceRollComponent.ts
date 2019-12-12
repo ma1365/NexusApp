@@ -1,4 +1,4 @@
-import { CommandComponent } from './CommandComponent';
+import { CommandComponent } from '../../models/commandComponent';
 
 export class DiceRollComponent {
     RollValues: number[];
