@@ -14,4 +14,8 @@ export class DiceRollerService {
   getRolls(): Observable<DiceRollComponent[]> {
     return of(DICEROLLS);
   }
+
+  getSelectedDieRolls(dieType: string): Observable<DiceRollComponent> {
+    return of(DICEROLLS.find(die => die.DieType === dieType));
+  }
 }

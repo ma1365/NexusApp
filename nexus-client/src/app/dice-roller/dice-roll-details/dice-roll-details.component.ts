@@ -1,5 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { DiceRollComponent } from '../models/diceRollComponent';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { DiceRollerService } from '../Services/dice-roller.service';
 
 @Component({
   selector: 'app-dice-roll-details',
@@ -11,20 +14,29 @@ import { DiceRollComponent } from '../models/diceRollComponent';
 
 export class DiceRollDetailsComponent implements OnInit {
 
-  @Input() die: DiceRollComponent;
-  @Output() rollDiceEvent = new EventEmitter();
-  dieCount: number;
+    dieCount: number;
+    die: DiceRollComponent;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location, //TODO: add back button
+    private diceRollerService: DiceRollerService) { }
 
   ngOnInit() {
+    this.getRolls();
+  }
+
+  getRolls(): void {
+    let dieType = this.route.snapshot.paramMap.get('dieType');
+    this.diceRollerService.getSelectedDieRolls(dieType.toString())
+      .subscribe(die => this.die = die);
   }
 
   onRollDie(value: DiceRollComponent){
     //TODO: Update Command that will be passed to API Call
     value.RollValues[0] = 1;
     value.RollValues[1] = 2;
-    this.rollDiceEvent.emit(value);
+    this.die = value;
   }
 
 }

@@ -2,8 +2,9 @@
 
 <table>
     <thead>
-        <th *ngFor="let roll of rolls" (click)="onSelect(roll)">{{roll.DieType}}</th>
+        <th *ngFor="let roll of rolls">
+            <a routerLink="/dice/{{roll.DieType}}">{{roll.DieType}}</a>
+        </th>
+        
     </thead>
 </table>
-
-<app-dice-roll-details [die]="selectedDie" (rollDiceEvent)="updateDetails($event)"></app-dice-roll-details>
