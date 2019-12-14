@@ -28,15 +28,14 @@ export class DiceRollDetailsComponent implements OnInit {
 
   getRolls(): void {
     let dieType = this.route.snapshot.paramMap.get('dieType');
-    this.diceRollerService.getSelectedDieRolls(dieType.toString())
+    this.diceRollerService.getSelectedDieInitialComponent(dieType.toString())
       .subscribe(die => this.die = die);
   }
 
   onRollDie(value: DiceRollComponent){
-    //TODO: Update Command that will be passed to API Call
-    value.RollValues[0] = 1;
-    value.RollValues[1] = 2;
-    this.die = value;
+    let dieType = this.route.snapshot.paramMap.get('dieType');
+    this.diceRollerService.getSelectedDieRolls(dieType.toString(), this.dieCount)
+      .subscribe(die => this.die = die);
   }
 
 }

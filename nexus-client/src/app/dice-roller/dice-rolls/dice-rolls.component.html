@@ -2,7 +2,7 @@
 
 <table>
     <thead>
-        <th *ngFor="let roll of rolls">
+        <th *ngFor="let roll of rolls$ | async">
             <a routerLink="/dice/{{roll.DieType}}">{{roll.DieType}}</a>
         </th>
         
