@@ -1,10 +1,9 @@
-<h2>My Rolls</h2>
+<h2>Select Dice</h2>
 
 <table>
     <thead>
-        <th *ngFor="let roll of rolls$ | async">
-            <a routerLink="/dice/{{roll.DieType}}">{{roll.DieType}}</a>
+        <th *ngFor="let die of dice">
+            <button> <a routerLink="/dice/{{die.DieType}}" (click)="onSelect(die)">{{die.DieType}}</a></button>
         </th>
-        
     </thead>
 </table>

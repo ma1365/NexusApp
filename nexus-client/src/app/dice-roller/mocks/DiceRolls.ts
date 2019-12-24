@@ -3,15 +3,16 @@ import { DiceRollComponent } from '../models/diceRollComponent';
 
 export const DICEROLLS: DiceRollComponent[]  = [
     {
-        RollValues : [ 3,4 ],
+        RollValues : [ 3, 4 ],
         DieType: 'D4',
-        Commands:[
+        SelectedCommand: null,
+        Commands: [
             {
                 IsEnabled: true,
                 IsVisible: true,
                 CommandName: 'Roll Dice',
                 Payload: {
-                    ExecutiontData: {
+                    ExecutionData: {
                         RollCount: 2
                     },
                     ReturnedData: null
@@ -20,15 +21,16 @@ export const DICEROLLS: DiceRollComponent[]  = [
         ]
     },
     {
-        RollValues : [ 3,5 ],
+        RollValues : [ 3, 5 ],
         DieType: 'D6',
-        Commands:[
+        SelectedCommand: null,
+        Commands: [
             {
                 IsEnabled: true,
                 IsVisible: true,
                 CommandName: 'Roll Dice',
                 Payload: {
-                    ExecutiontData: {
+                    ExecutionData: {
                         RollCount: 2
                     },
                     ReturnedData: null
@@ -37,15 +39,16 @@ export const DICEROLLS: DiceRollComponent[]  = [
         ]
     },
     {
-        RollValues : [ 5,7 ],
+        RollValues : [ 5, 7 ],
         DieType: 'D8',
-        Commands:[
+        SelectedCommand: null,
+        Commands: [
             {
                 IsEnabled: true,
                 IsVisible: true,
                 CommandName: 'Roll Dice',
                 Payload: {
-                    ExecutiontData: {
+                    ExecutionData: {
                         RollCount: 2
                     },
                     ReturnedData: null
@@ -54,15 +57,16 @@ export const DICEROLLS: DiceRollComponent[]  = [
         ]
     },
     {
-        RollValues : [ 7,9 ],
+        RollValues : [ 7, 9 ],
         DieType: 'D10',
-        Commands:[
+        SelectedCommand: null,
+        Commands: [
             {
                 IsEnabled: true,
                 IsVisible: true,
                 CommandName: 'Roll Dice',
                 Payload: {
-                    ExecutiontData: {
+                    ExecutionData: {
                         RollCount: 2
                     },
                     ReturnedData: null
@@ -71,15 +75,16 @@ export const DICEROLLS: DiceRollComponent[]  = [
         ]
     },
     {
-        RollValues : [ 9,11 ],
+        RollValues : [ 9, 11 ],
         DieType: 'D12',
-        Commands:[
+        SelectedCommand: null,
+        Commands: [
             {
                 IsEnabled: true,
                 IsVisible: true,
                 CommandName: 'Roll Dice',
                 Payload: {
-                    ExecutiontData: {
+                    ExecutionData: {
                         RollCount: 2
                     },
                     ReturnedData: null
@@ -88,15 +93,16 @@ export const DICEROLLS: DiceRollComponent[]  = [
         ]
     },
     {
-        RollValues : [ 11,19 ],
+        RollValues : [ 11, 19 ],
         DieType: 'D20',
-        Commands:[
+        SelectedCommand: null,
+        Commands: [
             {
                 IsEnabled: true,
                 IsVisible: true,
                 CommandName: 'Roll Dice',
                 Payload: {
-                    ExecutiontData: {
+                    ExecutionData: {
                         RollCount: 2
                     },
                     ReturnedData: null
@@ -105,15 +111,16 @@ export const DICEROLLS: DiceRollComponent[]  = [
         ]
     },
     {
-        RollValues : [ 3,99 ],
+        RollValues : [ 3, 99 ],
         DieType: 'D100',
-        Commands:[
+        SelectedCommand: null,
+        Commands: [
             {
                 IsEnabled: true,
                 IsVisible: true,
                 CommandName: 'Roll Dice',
                 Payload: {
-                    ExecutiontData: {
+                    ExecutionData: {
                         RollCount: 2
                     },
                     ReturnedData: null
@@ -121,4 +128,4 @@ export const DICEROLLS: DiceRollComponent[]  = [
             }
         ]
     }
-]
+];

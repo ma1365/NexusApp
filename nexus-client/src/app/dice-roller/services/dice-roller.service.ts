@@ -10,39 +10,50 @@ import { DiceRollComponent } from '..//models/diceRollComponent';
   providedIn: 'root'
 })
 export class DiceRollerService {
-  
-  diceRollerApiUrl = 'http://localhost:52444/api/DiceRoller/';
+
+  diceRollerApiUrl = 'http://localhost/DiceRollerAPI/api/DiceRoller/die';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+  public initialComponentLoad$: Observable<DiceRollComponent>
+
   constructor(private httpClient: HttpClient ) { }
 
-  getRolls(): Observable<DiceRollComponent[]> {
-    return this.httpClient.get<DiceRollComponent[]>(this.diceRollerApiUrl, this.httpOptions)
+  getDice(): Observable<DiceRollComponent[]> {
+    return this.httpClient.get<DiceRollComponent[]>(this.diceRollerApiUrl)
     .pipe(
       catchError(this.handleError<DiceRollComponent[]>('getRolls', []))
     );
   }
 
-  getSelectedDieRolls(dieType: string, rollCount: number): Observable<DiceRollComponent> {
-    let url = this.diceRollerApiUrl + dieType + '?rollCount=' + rollCount;
-    return this.handleApiCall(url, 'getSelectedDieRolls');  
+  getSelectedDieRolls(die: DiceRollComponent): Observable<DiceRollComponent> {
+    let url = this.diceRollerApiUrl + '/diceRoll';
+    return this.handleApiPost(url, 'getSelectedDieRolls', die);
   }
 
-  getSelectedDieInitialComponent(dieType: string): Observable<DiceRollComponent> {
-    let url = this.diceRollerApiUrl + dieType;
-    return this.handleApiCall(url, 'getSelectedDieInitialComponent');  
+  getSelectedDieInitialComponent(die: DiceRollComponent) {
+    let url = this.diceRollerApiUrl + '/diceRoll';
+    this.initialComponentLoad$ = this.handleApiPost(url, 'getSelectedDieInitialComponent', die);
+    return this.initialComponentLoad$;
   }
 
-  handleApiCall(url: string, actionName: string){
+  handleApiGet(url: string, actionName: string){
     return this.httpClient.get<DiceRollComponent>(url, this.httpOptions)
     .pipe(
       //This may be missing something after the operation
       catchError(this.handleError<DiceRollComponent>(actionName))
     );
   }
-  
+
+  handleApiPost(url: string, actionName: string, body: any){
+    return this.httpClient.post<DiceRollComponent>(url, body, this.httpOptions)
+    .pipe(
+      //This may be missing something after the operation
+      catchError(this.handleError<DiceRollComponent>(actionName))
+    );
+  }
+
   handleError<T>(operation = 'operation', result?: T){
     return (err: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure

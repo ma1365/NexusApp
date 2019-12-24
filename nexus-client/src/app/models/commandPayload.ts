@@ -1,4 +1,4 @@
 export class CommandPayload {
-    ExecutiontData: any;
+    ExecutionData: any;
     ReturnedData: any;
 }

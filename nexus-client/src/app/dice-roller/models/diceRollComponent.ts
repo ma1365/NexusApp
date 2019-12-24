@@ -3,5 +3,6 @@ import { CommandComponent } from '../../models/commandComponent';
 export class DiceRollComponent {
     RollValues: number[];
     DieType: string;
-    Commands: CommandComponent[]
+    Commands: CommandComponent[];
+    SelectedCommand: CommandComponent;
 }

@@ -7,7 +7,7 @@ import { DiceRollDetailsComponent } from './dice-roller/dice-roll-details/dice-r
 
 const routes: Routes = [
   { path: 'dice', component: DiceRollsComponent },
-  { path: 'dice/:dieType', component: DiceRollDetailsComponent },
+  { path: 'dice/:selectedDie', component: DiceRollDetailsComponent },
   { path: 'project-euler', component: ProjectEulerComponent }
 ];
 
