@@ -1,9 +1,13 @@
-<h2>Select Dice</h2>
-
-<table>
-    <thead>
-        <th *ngFor="let die of dice">
-            <button> <a routerLink="/dice/{{die.DieType}}" (click)="onSelect(die)">{{die.DieType}}</a></button>
-        </th>
-    </thead>
-</table>
+<mat-card>
+<mat-card-subtitle>Select Dice</mat-card-subtitle>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link
+      *ngFor="let die of dice"
+      routerLink="/dice/{{die.DieType}}"
+      routerLinkActive #rla="routerLinkActive"
+      active="rla.isActive"
+      (click)="onSelect(die)">
+      {{die.DieType}}
+    </a>
+  </nav>
+</mat-card>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DiceRollComponent } from '../models/diceRollComponent';
 import { DiceRollerService } from '../Services/dice-roller.service';
-import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-dice-rolls',
   templateUrl: './dice-rolls.component.html',
