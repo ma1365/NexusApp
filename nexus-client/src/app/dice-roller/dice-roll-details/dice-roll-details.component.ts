@@ -1,9 +1,10 @@
 import { Component, OnInit, Input  } from '@angular/core';
-import { DiceRollComponent } from '../models/diceRollComponent';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { DiceRollerService } from '../Services/dice-roller.service';
 import { Subject } from 'rxjs';
+
+import { DiceRollComponent } from '../models/diceRollComponent';
+import { DiceRollerService } from '../Services/dice-roller.service';
 import { CommandComponent } from 'src/app/models/commandComponent';
 
 @Component({
