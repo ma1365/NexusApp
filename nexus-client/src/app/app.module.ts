@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,7 +10,6 @@ import { ProjectEulerDetailsComponent } from './project-euler/project-euler-deta
 
 import { DiceRollerModule} from './dice-roller/dice-roller.module';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 
@@ -21,7 +20,6 @@ import { MatTabsModule } from '@angular/material/tabs';
     ProjectEulerDetailsComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
