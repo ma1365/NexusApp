@@ -23,8 +23,18 @@ export class DiceRollsComponent implements OnInit {
       .subscribe(dice => this.dice = dice);
   }
 
-  onSelect(die: DiceRollComponent){
+  onSelect(die: DiceRollComponent) {
     this.diceRollerService.getSelectedDieInitialComponent(die)
     .subscribe(dieComponent => this.selectedDie = dieComponent);
   }
 }
+
+// public ngOnInit(): void {
+//   this.route.params.pipe(
+//     tap(params => this.currentQueueService.loadById(params.id)),
+//     takeUntil(this.unsubscribe)
+//   ).subscribe();
+
+//   this.error$ = this.currentQueueService.hasError$;
+//   this.queue$ = this.currentQueueService.currentQueue$;
+// }

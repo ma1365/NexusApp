@@ -5,13 +5,25 @@
       *ngFor="let die of dice"
       routerLink="/dice/{{die.DieType}}"
       routerLinkActive #rla="routerLinkActive"
-      active="rla.isActive"
+      [active]="rla.isActive"
       (click)="onSelect(die)">
       {{die.DieType}}
     </a>
   </nav>
 
-  <!-- <router-outlet></router-outlet> -->
+  <router-outlet></router-outlet>
 
 </mat-card>
 
+
+
+
+<!-- <ul>
+  <li *ngFor="let die of dice">
+    <a routerLink="/dice/{{die.DieType}}"
+    routerLinkActive #rla="routerLinkActive"
+    active="rla.isActive"
+    (click)="onSelect(die)">
+    {{die.DieType}}></a>
+  </li>
+</ul> -->

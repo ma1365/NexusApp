@@ -1,5 +1,5 @@
 import { Component, OnInit, Input  } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Location } from '@angular/common';
 import { Subject } from 'rxjs';
 
@@ -18,11 +18,22 @@ export class DiceRollDetailsComponent implements OnInit {
     dieCount: number;
     die: DiceRollComponent;
     die$: Subject<DiceRollComponent>;
+    navigationSubscription;
 
   constructor(
     private route: ActivatedRoute,
     private location: Location, // TODO: add back button
-    private diceRollerService: DiceRollerService) { }
+    private diceRollerService: DiceRollerService,
+    private router: Router) {
+      // subscribe to the router events - storing the subscription so
+      // we can unsubscribe later.
+      this.navigationSubscription = this.router.events.subscribe((e: any) => {
+        // If it is a NavigationEnd event re-initalise the component
+        if (e instanceof NavigationEnd) {
+          this.initialiseInvites();
+        }
+      });
+    }
 
   @Input()
   queryParams: {
@@ -31,6 +42,13 @@ export class DiceRollDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.getRolls();
+  }
+
+  initialiseInvites() {
+    // Set default values and re-fetch any data you need.
+    this.dieCount = null;
+    this.getRolls();
+
   }
 
   getRolls(): void {
