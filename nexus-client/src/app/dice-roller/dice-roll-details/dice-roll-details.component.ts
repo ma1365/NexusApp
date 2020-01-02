@@ -1,4 +1,4 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy  } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Location } from '@angular/common';
 import { Subject } from 'rxjs';
@@ -17,7 +17,7 @@ export class DiceRollDetailsComponent implements OnInit {
 
     dieCount: number;
     die: DiceRollComponent;
-    die$: Subject<DiceRollComponent>;
+    // die$: Subject<DiceRollComponent>;
     navigationSubscription;
 
   constructor(
@@ -25,6 +25,7 @@ export class DiceRollDetailsComponent implements OnInit {
     private location: Location, // TODO: add back button
     private diceRollerService: DiceRollerService,
     private router: Router) {
+      // https://medium.com/engineering-on-the-incline/reloading-current-route-on-click-angular-5-1a1bfc740ab2
       // subscribe to the router events - storing the subscription so
       // we can unsubscribe later.
       this.navigationSubscription = this.router.events.subscribe((e: any) => {
@@ -43,6 +44,10 @@ export class DiceRollDetailsComponent implements OnInit {
   ngOnInit() {
     this.getRolls();
   }
+
+  // ngOnDestroy(): void {
+  //   this.die$.unsubscribe();
+  // }
 
   initialiseInvites() {
     // Set default values and re-fetch any data you need.

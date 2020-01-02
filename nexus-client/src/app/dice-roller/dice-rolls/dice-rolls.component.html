@@ -10,20 +10,7 @@
       {{die.DieType}}
     </a>
   </nav>
-
+  <!-- https://medium.com/engineering-on-the-incline/reloading-current-route-on-click-angular-5-1a1bfc740ab2 -->
   <router-outlet></router-outlet>
 
 </mat-card>
-
-
-
-
-<!-- <ul>
-  <li *ngFor="let die of dice">
-    <a routerLink="/dice/{{die.DieType}}"
-    routerLinkActive #rla="routerLinkActive"
-    active="rla.isActive"
-    (click)="onSelect(die)">
-    {{die.DieType}}></a>
-  </li>
-</ul> -->

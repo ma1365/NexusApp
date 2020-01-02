@@ -1,10 +1,14 @@
+<mat-toolbar>{{title}}</mat-toolbar>
 <mat-card>
-<mat-card-title>{{title}}</mat-card-title>
 
-  <nav>
-    <a routerLink="/dice">Dice Roller</a>
-    <a routerLink="/project-euler"> | Project Euler</a>
-  </nav>
+  <div>
+    <button mat-raised-button routerLink="/dice">
+      Dice Roller
+    </button>
+    <button mat-raised-button routerLink="/project-euler">
+      Project Euler
+    </button >
+  </div>
 </mat-card>
 
 <router-outlet></router-outlet>

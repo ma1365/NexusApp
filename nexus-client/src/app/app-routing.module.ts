@@ -4,6 +4,8 @@ import { ProjectEulerComponent } from './project-euler/project-euler/project-eul
 import { DiceRollsComponent } from './dice-roller/dice-rolls/dice-rolls.component';
 import { DiceRollDetailsComponent } from './dice-roller/dice-roll-details/dice-roll-details.component';
 
+// tslint:disable-next-line: max-line-length
+// https://www.freakyjolly.com/angular-nested-routing-with-multiple-routeroutlet-using-loadchildren-having-own-router-modules-example-application/
 const routes: Routes = [
   { path: 'project-euler', component: ProjectEulerComponent },
   { path: 'dice', component: DiceRollsComponent, runGuardsAndResolvers: 'always',
@@ -18,7 +20,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
+    RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]
 })

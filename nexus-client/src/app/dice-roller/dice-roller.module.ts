@@ -8,6 +8,10 @@ import { DiceRollDetailsComponent } from './dice-roll-details/dice-roll-details.
 
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   imports: [
@@ -15,7 +19,11 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatCardModule,
     MatTabsModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    MatChipsModule
   ],
   declarations: [
     DiceRollsComponent,

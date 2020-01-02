@@ -12,6 +12,9 @@ import { DiceRollerModule} from './dice-roller/dice-roller.module';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     BrowserAnimationsModule,
     MatCardModule,
     MatTabsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatInputModule,
     DiceRollerModule
   ],
   providers: [],
